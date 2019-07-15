@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<processors>
+	<processor name="formatContent">
+		<performance name="formatContent"/>
+	</processor>
+	
+	<processor name="putHBase">
+		<performance name="putHBase"/>
+	</processor>
+	
+	<processor name="sendMq">
+		<performance name="sendMq"/>
+	</processor>
+	<processor name="getHBase">
+		<performance name="lowerField"/>
+		<performance name="getHBase"/>
+	</processor>
+</processors>

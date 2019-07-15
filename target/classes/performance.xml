@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<performances>
+	<!--
+	<performance name="download" class="performance" method="download"></performance>
+		<performance name="formatContent" class="performance" method="formatContent"></performance>
+		<performance name="formatDate" class="performance" method="formatDate"></performance>
+		<performance name="putTag" class="performance" method="putTag"></performance>
+		<performance name="countLiveness" class="performance" method="countLiveness"></performance>-->
+	<performance name="formatContent" class="FormatContent" formatKey="t_content,c_content,n_content,p_content,m_content,t_title,c_title,n_title,publish_time"></performance>
+	<performance name="sendMq" class="SendMQ" exchangeName="topic" routingKey="topic." rabbitType="topic" exchangeDurable="true"></performance>
+	<performance name="putHBase" class="PutHBase"></performance>
+	<performance name="getHBase" class="GetHBase"></performance>
+	<performance name="lowerField" class="LowerField" fieldKey="table_name"></performance>
+</performances>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<tasks>
+	<task name="commonTask" rabbitType="normal" queueName="common" qos="8" autoAck="false">
+		<processor name="getHBase"/>
+		<processor name="formatContent"/>
+		<processor name="putHBase"/>
+		<processor name="sendMq"/>
+	</task>
+	
+	<!-- <task name="siteTask" rabbitType="topic" exchangeName="common" routingKey="common.site" queueName="common.site" qos="2" autoAck="false">
+		<processor name="getHBase"/>
+		<processor name="searchMysql" where="where site_id=?" params="domain" importKey="result"/>
+		<processor name="imgDownloadUpload"/>
+		<processor name="FreshSite"/>
+	</task> -->
+	<!--
+	<task name="putTag" rabbitType="normal" queueName="commongfgg" qos="1" autoAck="true">
+			<processor name="formatDate"/>
+			<multiple>
+				<processor name="putTag"/>
+				<processor name="countLiveness"/>
+			</multiple>
+		</task>
+		<task name="test1" rabbitType="topic" exchangeName="cvv" routingKey="ggg.vvv">
+			<processor name="putTag"/>
+		</task>
+		<task name="test2" rabbitType="topic" exchangeName="cvv" routingKey="ggg.bbb">
+			<processor name="countLiveness"/>
+		</task>-->
+</tasks>
