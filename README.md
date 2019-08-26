@@ -15,4 +15,36 @@ Data Processing Engine
 ```  
 其中`name`和`class`必填， 后面`fieldKey`为自定义参数，会在map中存入，使用时可在map中根据`table_name`获取
 
-后续更新……
+processer
+```java
+<processor name="getHBase">
+  <performance name="lowerField"/>
+  <performance name="getHBase"/>
+</processor>
+```
+name为对应performance的name
+task
+```java
+<task name="siteTask" rabbitType="topic" exchangeName="common" routingKey="common.site" queueName="common.site" qos="2" autoAck="false">
+  <processor name="getHBase"/>
+  <processor name="FreshSite"/>
+</task>
+```
+name为对应processor的name
+
+
+
+## rabbitmq
+框架集成了rabbitmq
+在task后加上自定义的参数
+```java
+<task name="commonTask" rabbitType="normal" queueName="common" qos="8" autoAck="false">
+  <processor name="formatContent"/>
+  <processor name="sendMq"/>
+</task>
+```
+
+发送则是在performance后加上自定义参数
+```java
+<performance name="sendMq" class="SendMQ" exchangeName="topic" routingKey="topic." rabbitType="topic" exchangeDurable="true"></performance>
+```
